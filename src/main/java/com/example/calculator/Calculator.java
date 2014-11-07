@@ -1,5 +1,7 @@
 package com.example.calculator;
 
+import java.util.List;
+
 public class Calculator {
 	
 	private final ResultStorage storage;
@@ -26,6 +28,10 @@ public class Calculator {
 			storage.add("E");
 		}
 }
+
+	public List<String> getResults() {
+		return storage.getStoredResults();
+	}
 	
 	
 }

@@ -20,6 +20,20 @@ public class AddOperationTest {
 		assertEquals(3, sum);
 	}
 	
+	@Test
+	public void testAddingNegative() {
+		// GIVEN
+		int a = -5;
+		int b = 2;
+		AddOperation operation = new AddOperation(a, b);
+		
+		// WHEN
+		int sum = operation.calculate();
+		
+		// THEN
+		assertEquals(-3, sum);
+	}
+	
 	@Test(expected=ArithmeticException.class)
 	public void testOverflow() {
 		// GIVEN

@@ -4,16 +4,22 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculatorOperateTest {
 	
+	private ResultStorage storage;
+	private Calculator calculator;
+	
+	@Before
+	public void setUp() {
+		storage = new ResultStorage();
+		calculator = new Calculator(storage);
+	}
+	
 	@Test
 	public void testGeneralOperation() {
-		// GIVEN
-		ResultStorage storage = new ResultStorage();
-		Calculator calculator = new Calculator(storage);
-		
 		// WHEN
 		calculator.calculate(new PredefinedThreeOperation()); // TODO replace me with a mock
 		
@@ -23,10 +29,6 @@ public class CalculatorOperateTest {
 	
 	@Test
 	public void testExceptionOperation() {
-		// GIVEN
-		ResultStorage storage = new ResultStorage();
-		Calculator calculator = new Calculator(storage);
-		
 		// WHEN
 		calculator.calculate(new ExceptionalOperation());  // TODO replace me with a mock
 		

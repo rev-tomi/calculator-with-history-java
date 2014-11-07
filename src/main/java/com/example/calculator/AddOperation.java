@@ -21,7 +21,7 @@ public class AddOperation implements Operation {
 	}
 
 	private void checkOverflow(int a, int b) {
-		if (Integer.MAX_VALUE - b < a) {
+		if (Integer.MAX_VALUE - Math.abs(b) < Math.abs(a)) {
 			throw new ArithmeticException("Integer overflow");
 		}
 	}
