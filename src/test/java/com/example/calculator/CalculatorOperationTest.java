@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class CalculatorFindOperatorTest {
+public class CalculatorOperationTest {
 	
 	@Test
 	public void testGettingTheRightOperation() {
