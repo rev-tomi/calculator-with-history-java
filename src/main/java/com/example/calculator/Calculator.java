@@ -9,16 +9,17 @@ public class Calculator {
 	}
 
 	public void add(int a, int b) {
-		getAddOperation(a, b);
+		Operation operation = getAddOperation(a, b);
+		calculate(operation);
 	}
 
-	/** Protected-private for testing reasons */
+	/** Protected for testing reasons */
 	protected Operation getAddOperation(int a, int b) {
-		return null;
+		return new AddOperation(a, b);
 	}
 
-	/** Package-private for testing reasons */
-	void calculate(Operation operation) {
+	/** Protected for testing reasons */
+	protected void calculate(Operation operation) {
 		try {
 			storage.add(Integer.toString(operation.calculate()));
 		} catch (RuntimeException ex) {
