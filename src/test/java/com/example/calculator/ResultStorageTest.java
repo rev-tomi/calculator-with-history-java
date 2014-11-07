@@ -20,7 +20,6 @@ public class ResultStorageTest {
 		
 		// THEN
 		assertEquals(Arrays.asList("2", "E", "3"), storage.getStoredResults());
-		
 	}
 
 }

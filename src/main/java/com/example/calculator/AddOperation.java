@@ -1,6 +1,6 @@
 package com.example.calculator;
 
-public class AddOperation {
+public class AddOperation implements Operation {
 	
 	private int a;
 	private int b;
