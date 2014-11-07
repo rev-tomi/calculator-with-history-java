@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ResultStorage {
 	
-	private static final List<String> list = new ArrayList<>();
+	private final List<String> list = new ArrayList<>();
 
 	public void add(String string) {
 		list.add(string);
