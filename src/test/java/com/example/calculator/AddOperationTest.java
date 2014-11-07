@@ -10,14 +10,14 @@ public class AddOperationTest {
 	public void testAdding() {
 		// GIVEN
 		int a = 1;
-		float b = 2.0F;
+		int b = 2;
 		AddOperation operation = new AddOperation(a, b);
 		
 		// WHEN
-		double sum = operation.calculate();
+		int sum = operation.calculate();
 		
 		// THEN
-		assertEquals(3.0, sum, 0.0001);
+		assertEquals(3, sum);
 	}
 
 }

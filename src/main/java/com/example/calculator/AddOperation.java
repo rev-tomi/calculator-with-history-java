@@ -2,15 +2,15 @@ package com.example.calculator;
 
 public class AddOperation {
 	
-	private double a;
-	private double b;
+	private int a;
+	private int b;
 	
-	public AddOperation(double a, double b) {
+	public AddOperation(int a, int b) {
 		this.a = a;
 		this.b = b;
 	}
 	
-	public double calculate() {
+	public int calculate() {
 		return a + b;
 	}
 
