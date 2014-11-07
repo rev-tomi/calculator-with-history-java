@@ -1,0 +1,5 @@
+This project is an experiment on how to solve the 'why unit testing is hard' problem.
+This problem was described by John Sonmez here:  (http://simpleprogrammer.com/2010/12/12/back-to-basics-why-unit-testing-is-hard/)
+
+When approaching the problem I'm applying what I learned from J.B. Rainsberger-s JUnit recipes book http://www.manning.com/rainsberger/
+
