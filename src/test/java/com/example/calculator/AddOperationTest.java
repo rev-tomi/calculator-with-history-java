@@ -1,6 +1,6 @@
 package com.example.calculator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -19,5 +19,13 @@ public class AddOperationTest {
 		// THEN
 		assertEquals(3, sum);
 	}
-
+	
+	@Test(expected=ArithmeticException.class)
+	public void testOverflow() {
+		// GIVEN
+		AddOperation operation = new AddOperation(Integer.MAX_VALUE, 2);
+		
+		// WHEN
+		operation.calculate();
+	}
 }

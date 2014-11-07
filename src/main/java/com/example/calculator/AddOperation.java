@@ -11,7 +11,19 @@ public class AddOperation {
 	}
 	
 	public int calculate() {
+		doValidityCheck();
 		return a + b;
+	}
+
+	private void doValidityCheck() {
+		checkOverflow(a, b);
+		checkOverflow(b, a);
+	}
+
+	private void checkOverflow(int a, int b) {
+		if (Integer.MAX_VALUE - b < a) {
+			throw new ArithmeticException("Integer overflow");
+		}
 	}
 
 }
