@@ -1,24 +1,12 @@
 package com.example.calculator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
 import org.junit.Test;
 
-public class CalculatorOperatorTest {
-	
-	@Test
-	public void testGettingTheRightOperation() {
-		// GIVEN
-		AddCalledCalculator calculator = new AddCalledCalculator();
-		
-		// WHEN
-		calculator.add(2, 3);
-		
-		// THEN
-		assertTrue(calculator.getAddOperationCalled);
-	}
+public class CalculatorOperateTest {
 	
 	@Test
 	public void testGeneralOperation() {
@@ -27,7 +15,7 @@ public class CalculatorOperatorTest {
 		Calculator calculator = new Calculator(storage);
 		
 		// WHEN
-		calculator.calculate(new PredefinedThreeOperation());
+		calculator.calculate(new PredefinedThreeOperation()); // TODO replace me with a mock
 		
 		// THEN
 		assertEquals(Arrays.asList("3"), storage.getStoredResults());
@@ -40,26 +28,10 @@ public class CalculatorOperatorTest {
 		Calculator calculator = new Calculator(storage);
 		
 		// WHEN
-		calculator.calculate(new ExceptionalOperation());
+		calculator.calculate(new ExceptionalOperation());  // TODO replace me with a mock
 		
 		// THEN
 		assertEquals(Arrays.asList("E"), storage.getStoredResults());
-	}
-	
-	private static class AddCalledCalculator extends Calculator {
-		
-		public AddCalledCalculator() {
-			super(null);
-		}
-		
-		private boolean getAddOperationCalled;
-		
-		@Override
-		protected Operation getAddOperation(int a, int b) {
-			getAddOperationCalled = true;
-			return null;
-		}
-		
 	}
 	
 	private static class PredefinedThreeOperation implements Operation {
@@ -77,5 +49,5 @@ public class CalculatorOperatorTest {
 			throw new RuntimeException("Test exception");
 		}
 	}
-	
+
 }
