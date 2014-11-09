@@ -9,7 +9,7 @@ public class CalculatorOperationTest {
 	@Test
 	public void testGettingTheRightOperation() {
 		// GIVEN
-		AddCalledCalculator calculator = new AddCalledCalculator();
+		SpyAddOperationCalculator calculator = new SpyAddOperationCalculator();
 		
 		// WHEN
 		calculator.add(2, 3);
@@ -21,7 +21,7 @@ public class CalculatorOperationTest {
 	@Test
 	public void testCallingCalculate() {
 		// GIVEN
-		CalculateCalledCalculator calculator = new CalculateCalledCalculator();
+		SpyCalculateTemplateCalculator calculator = new SpyCalculateTemplateCalculator();
 		
 		// WHEN
 		calculator.add(1, 2);
@@ -30,10 +30,14 @@ public class CalculatorOperationTest {
 		assertTrue(calculator.calledWithRightOperation);
 	}
 	
-	private static class AddCalledCalculator extends Calculator {
+	/*******************
+	 *  INNER CLASSES  *
+	 *******************/
+	
+	private static class SpyAddOperationCalculator extends Calculator {
 		
-		public AddCalledCalculator() {
-			super(null);
+		public SpyAddOperationCalculator() {
+			super(new ResultStorage());
 		}
 		
 		private boolean getAddOperationCalled;
@@ -43,18 +47,14 @@ public class CalculatorOperationTest {
 			getAddOperationCalled = true;
 			return null;
 		}
-		
-		@Override
-		protected void calculate(Operation operation) {
-			// NOP: avoiding NPE
-		}
+
 	}
 	
-	private static class CalculateCalledCalculator extends Calculator {
+	private static class SpyCalculateTemplateCalculator extends Calculator {
 
 		private boolean calledWithRightOperation;
 		
-		public CalculateCalledCalculator() {
+		public SpyCalculateTemplateCalculator() {
 			super(null);
 		}
 		

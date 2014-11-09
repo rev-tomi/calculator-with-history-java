@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CalculatorOperateTest {
+public class CalculatorUsingOperatorTest {
 	
 	private ResultStorage storage;
 	private Calculator calculator;
@@ -21,7 +21,7 @@ public class CalculatorOperateTest {
 	@Test
 	public void testGeneralOperation() {
 		// WHEN
-		calculator.calculate(new PredefinedThreeOperation()); // TODO replace me with a mock
+		calculator.calculate(new PredefinedThreeOperation());
 		
 		// THEN
 		assertEquals(Arrays.asList("3"), storage.getStoredResults());
@@ -30,11 +30,15 @@ public class CalculatorOperateTest {
 	@Test
 	public void testExceptionOperation() {
 		// WHEN
-		calculator.calculate(new ExceptionalOperation());  // TODO replace me with a mock
+		calculator.calculate(new ExceptionalOperation());
 		
 		// THEN
 		assertEquals(Arrays.asList("E"), storage.getStoredResults());
 	}
+	
+	/*******************
+	 *  INNER CLASSES  *
+	 *******************/
 	
 	private static class PredefinedThreeOperation implements Operation {
 
@@ -46,6 +50,7 @@ public class CalculatorOperateTest {
 	}
 	
 	private static class ExceptionalOperation implements Operation {
+		
 		@Override
 		public int calculate() {
 			throw new RuntimeException("Test exception");
