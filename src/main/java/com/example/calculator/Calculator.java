@@ -27,7 +27,7 @@ public class Calculator {
 		} catch (RuntimeException ex) {
 			storage.add("E");
 		}
-}
+	}
 
 	public List<String> getResults() {
 		return storage.getStoredResults();
